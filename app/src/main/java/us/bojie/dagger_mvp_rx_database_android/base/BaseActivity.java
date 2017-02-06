@@ -3,6 +3,7 @@ package us.bojie.dagger_mvp_rx_database_android.base;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.CallSuper;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
@@ -10,7 +11,7 @@ import android.support.v7.app.AppCompatActivity;
  * Created by bojiejiang on 2/5/17.
  */
 
-public abstract class BasicActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 
     private ProgressDialog mProgressDialog;
 
@@ -23,8 +24,14 @@ public abstract class BasicActivity extends AppCompatActivity {
 
     protected abstract int getContentView();
 
+    @CallSuper
     protected void onViewReady(Bundle savedInstanceState, Intent intent) {
+        resolveDaggerDependency();
         //To be used by child activities;
+    }
+
+    protected void resolveDaggerDependency() {
+
     }
 
     protected void showDialog(String message) {

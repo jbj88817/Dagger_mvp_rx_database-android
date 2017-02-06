@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="us.bojie.dagger_mvp_rx_database_android.MainActivity">
+    tools:context="us.bojie.dagger_mvp_rx_database_android.modules.home.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
