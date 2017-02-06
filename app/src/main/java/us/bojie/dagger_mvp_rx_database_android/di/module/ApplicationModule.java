@@ -1,5 +1,7 @@
 package us.bojie.dagger_mvp_rx_database_android.di.module;
 
+import android.content.Context;
+
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Named;
@@ -20,8 +22,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ApplicationModule {
 
     private String mBaseUrl;
+    private Context mContext;
 
-    public ApplicationModule(String baseUrl) {
+    public ApplicationModule(Context context, String baseUrl) {
+        mContext = context;
         mBaseUrl = baseUrl;
     }
 
@@ -72,5 +76,11 @@ public class ApplicationModule {
                 .client(client)
                 .build();
 
+    }
+
+    @Provides
+    @Singleton
+    Context provideContext() {
+        return mContext;
     }
 }

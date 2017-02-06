@@ -2,6 +2,8 @@ package us.bojie.dagger_mvp_rx_database_android;
 
 import android.os.Bundle;
 
+import us.bojie.dagger_mvp_rx_database_android.base.BasicActivity;
+
 public class MainActivity extends BasicActivity {
 
     @Override

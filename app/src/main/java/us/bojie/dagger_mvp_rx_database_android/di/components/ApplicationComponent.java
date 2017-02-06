@@ -1,8 +1,11 @@
 package us.bojie.dagger_mvp_rx_database_android.di.components;
 
+import android.content.Context;
+
 import javax.inject.Singleton;
 
 import dagger.Component;
+import retrofit2.Retrofit;
 import us.bojie.dagger_mvp_rx_database_android.di.module.ApplicationModule;
 
 /**
@@ -13,4 +16,7 @@ import us.bojie.dagger_mvp_rx_database_android.di.module.ApplicationModule;
 @Component(modules = ApplicationModule.class)
 public interface ApplicationComponent {
 
+    Retrofit exposeRetrofit();
+
+    Context exposeContext();
 }

@@ -1,4 +1,4 @@
-package us.bojie.dagger_mvp_rx_database_android;
+package us.bojie.dagger_mvp_rx_database_android.base;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
