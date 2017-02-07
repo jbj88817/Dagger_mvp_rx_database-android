@@ -16,14 +16,12 @@ import us.bojie.dagger_mvp_rx_database_android.mvp.model.Storage;
 
 public class CakeMapper {
 
-    @Inject protected Storage mStorage;
-
     @Inject
     public CakeMapper() {
 
     }
 
-    public List<Cake> mapCakes(CakeResponse response) {
+    public List<Cake> mapCakes(Storage storage, CakeResponse response) {
         List<Cake> cakeList = new ArrayList<>();
 
         if (response != null) {
@@ -36,7 +34,7 @@ public class CakeMapper {
                     myCake.setDetailDescription(cake.getDetailDescription());
                     myCake.setPreviewDescription(cake.getPreviewDescription());
                     myCake.setImage(cake.getImage());
-                    mStorage.addCake(myCake);
+                    storage.addCake(myCake);
                     cakeList.add(myCake);
                 }
             }

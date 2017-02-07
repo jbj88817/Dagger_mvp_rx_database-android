@@ -17,4 +17,6 @@ public interface MainView extends BaseView {
     void onHideDialog();
 
     void onShowToast(String message);
+
+    void onClearItems();
 }

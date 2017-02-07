@@ -55,6 +55,11 @@ public class CakeAdapter extends RecyclerView.Adapter<CakeAdapter.Holder> {
         notifyDataSetChanged();
     }
 
+    public void clearCakes() {
+        mCakeList.clear();
+        notifyDataSetChanged();
+    }
+
     public class Holder extends RecyclerView.ViewHolder {
 
         @Bind(R.id.cake_icon) protected ImageView mCakeIcon;

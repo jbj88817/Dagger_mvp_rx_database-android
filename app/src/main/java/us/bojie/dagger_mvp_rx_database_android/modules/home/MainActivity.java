@@ -19,6 +19,7 @@ import us.bojie.dagger_mvp_rx_database_android.modules.home.adapter.CakeAdapter;
 import us.bojie.dagger_mvp_rx_database_android.mvp.model.Cake;
 import us.bojie.dagger_mvp_rx_database_android.mvp.presenter.CakePresenter;
 import us.bojie.dagger_mvp_rx_database_android.mvp.view.MainView;
+import us.bojie.dagger_mvp_rx_database_android.utils.NetworkUtils;
 
 public class MainActivity extends BaseActivity implements MainView {
 
@@ -39,7 +40,12 @@ public class MainActivity extends BaseActivity implements MainView {
     protected void onViewReady(Bundle savedInstanceState, Intent intent) {
         super.onViewReady(savedInstanceState, intent);
         initializeList();
-        mPresenter.getCakes();
+
+        if (NetworkUtils.isNetAvailable(this)) {
+            mPresenter.getCakes();
+        } else {
+            mPresenter.getCakesFromDatabase();
+        }
     }
 
     private void initializeList() {
@@ -77,5 +83,10 @@ public class MainActivity extends BaseActivity implements MainView {
     @Override
     public void onShowToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onClearItems() {
+        mCakeAdapter.clearCakes();
     }
 }

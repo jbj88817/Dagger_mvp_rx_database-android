@@ -11,6 +11,7 @@ import us.bojie.dagger_mvp_rx_database_android.base.BasePresenter;
 import us.bojie.dagger_mvp_rx_database_android.mapper.CakeMapper;
 import us.bojie.dagger_mvp_rx_database_android.mvp.model.Cake;
 import us.bojie.dagger_mvp_rx_database_android.mvp.model.CakeResponse;
+import us.bojie.dagger_mvp_rx_database_android.mvp.model.Storage;
 import us.bojie.dagger_mvp_rx_database_android.mvp.view.MainView;
 
 /**
@@ -21,6 +22,7 @@ public class CakePresenter extends BasePresenter<MainView> implements Observer<C
 
     @Inject protected CakeApiService mApiService;
     @Inject protected CakeMapper mCakeMapper;
+    @Inject protected Storage mStorage;
 
     @Inject
     public CakePresenter() {
@@ -47,7 +49,14 @@ public class CakePresenter extends BasePresenter<MainView> implements Observer<C
 
     @Override
     public void onNext(CakeResponse cakeResponse) {
-        List<Cake> cakes = mCakeMapper.mapCakes(cakeResponse);
+        List<Cake> cakes = mCakeMapper.mapCakes(mStorage, cakeResponse);
+        getView().onClearItems();
+        getView().onCakeLoaded(cakes);
+    }
+
+    public void getCakesFromDatabase() {
+        List<Cake> cakes = mStorage.getSavedCakes();
+        getView().onClearItems();
         getView().onCakeLoaded(cakes);
     }
 }
