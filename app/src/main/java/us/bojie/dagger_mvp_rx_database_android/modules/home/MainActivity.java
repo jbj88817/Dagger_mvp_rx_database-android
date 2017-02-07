@@ -45,7 +45,7 @@ public class MainActivity extends BaseActivity implements MainView {
     private void initializeList() {
         mCakeList.setHasFixedSize(true);
         mCakeList.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        mCakeAdapter = new CakeAdapter(getLayoutInflater());
+        mCakeAdapter = new CakeAdapter(this, getLayoutInflater());
         mCakeList.setAdapter(mCakeAdapter);
     }
 

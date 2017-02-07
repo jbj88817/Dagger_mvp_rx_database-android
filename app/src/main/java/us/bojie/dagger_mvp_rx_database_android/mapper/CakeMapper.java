@@ -29,6 +29,7 @@ public class CakeMapper {
                 for (CakeResponseCakes cake : responseCakes) {
                     Cake myCake = new Cake();
                     myCake.setId(cake.getId());
+                    myCake.setTitle(cake.getTitle());
                     myCake.setDetailDescription(cake.getDetailDescription());
                     myCake.setPreviewDescription(cake.getPreviewDescription());
                     myCake.setImage(cake.getImage());

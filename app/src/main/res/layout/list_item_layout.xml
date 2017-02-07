@@ -57,6 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_marginRight="8dp"
-        android:tint="#DDDDDD"/>
+        android:tint="#DDDDDD"
+        android:src="@android:drawable/ic_media_next"/>
 
 </LinearLayout>
