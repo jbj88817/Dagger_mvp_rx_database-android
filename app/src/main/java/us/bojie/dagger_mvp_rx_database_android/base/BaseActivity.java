@@ -7,6 +7,9 @@ import android.support.annotation.CallSuper;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import us.bojie.dagger_mvp_rx_database_android.application.CakeApplication;
+import us.bojie.dagger_mvp_rx_database_android.di.components.ApplicationComponent;
+
 /**
  * Created by bojiejiang on 2/5/17.
  */
@@ -49,6 +52,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (mProgressDialog != null && mProgressDialog.isShowing()) {
             mProgressDialog.dismiss();
         }
+    }
 
+    protected ApplicationComponent getApplicationComponent() {
+        return ((CakeApplication) getApplication()).getApplicationComponent();
     }
 }

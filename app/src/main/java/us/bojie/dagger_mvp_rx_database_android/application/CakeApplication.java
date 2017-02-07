@@ -2,6 +2,7 @@ package us.bojie.dagger_mvp_rx_database_android.application;
 
 import android.app.Application;
 
+import us.bojie.dagger_mvp_rx_database_android.di.components.ApplicationComponent;
 import us.bojie.dagger_mvp_rx_database_android.di.components.DaggerApplicationComponent;
 
 /**
@@ -10,6 +11,8 @@ import us.bojie.dagger_mvp_rx_database_android.di.components.DaggerApplicationCo
 
 public class CakeApplication extends Application {
 
+    private ApplicationComponent mApplicationComponent;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -17,7 +20,11 @@ public class CakeApplication extends Application {
     }
 
     private void initApplicationComponent() {
-        DaggerApplicationComponent.builder().build();
+        mApplicationComponent = DaggerApplicationComponent.builder().build();
+    }
+
+    public ApplicationComponent getApplicationComponent() {
+        return mApplicationComponent;
     }
 
     @Override
